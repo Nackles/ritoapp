@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <script>
+      // These are my IDs
+      let encryptedSummonerId =
+        "ABoj65izE0NLrwzMqczkpq0ug8eYomlFZnsmiuZTjnVIeTo";
+      let regionURL = "na1.api.riotgames.com";
+      let queryURL =
+        "/lol/spectator/v4/active-games/by-summoner/" + encryptedSummonerId;
+      let apiKey = "?api_key=RGAPI-d4505591-4781-49de-b597-d491a4cbf601";
+      let headersToUse = {
+        "url": regionURL + queryURL+ apiKey,
+        method: "GET_getFeaturedGames",
+        "Access-Control-Allow-Origin": "*"
+      };
+      console.log(
+        $.ajax({
+          headersToUse
+          // url: regionURL + queryURL+ apiKey,
+          // method: "GET_getFeaturedGames",
+          // headers: headersToUse
+        })
+          .then(function(response) {
+            console.log(response);
+          })
+          .fail(function(response) {
+            console.log(response);
+          })
+      );
+    </script>
+  </body>
+</html>
